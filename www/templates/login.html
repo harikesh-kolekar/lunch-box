@@ -1,0 +1,40 @@
+<ion-view view-title="Login" class="grey_bg">
+  	<ion-content padding="10">
+      <div class="list">
+			<p class="form_logo">
+         	<img title="" alt="" src="img/logomain.png" class="">
+         </p>
+        	<p ng-if = "error_message" class="header-error">
+              {{ error_message }}
+          </p>
+        <form ng-submit="handleLoginBtnClick(loginForm)" role="form" ng-init="loginForm = {}"name="loginF">
+          <label class="item item-input">
+            <input type="email" placeholder="email" name="email" ng-model="loginForm.email" required="required"> 
+            <span class = "error" ng-show="loginF.email.$touched && loginF.email.$invalid">
+              <span ng-show="loginF.email.$error.required">Email is required.</span>
+              <span ng-show="loginF.email.$error.email">Invalid email address.</span>
+            </span>
+          </label>
+          <label class="item item-input">
+            <input type="password" placeholder="password" name="password" ng-model="loginForm.password" required="required" class="form-control">
+            <span class = "error" ng-show="loginF.password.$touched && loginF.password.$invalid">
+              <span ng-show="loginF.password.$error.required  ">Password is required.</span>
+            </span>
+          </label>
+          <a ng-href="#/forgot" class="button button-clear button-block button-assertive">
+              Forgot Password?
+          </a>
+          <button type="submit" class="button button-block button-assertive"  ng-disabled="loginF.$invalid">LOGIN</button>
+          <button class="button button-clear button-block">
+              Don't have an account?
+          </button>
+          <a ng-href="#/signup" class="button button-clear button-block button-assertive">
+              Create Account
+          </a>
+          <a ng-href="#/resend_authentication_email" class="button button-clear button-block button-assertive">
+              Resend Authentication Email
+          </a>
+        </form>
+      </div>
+  </ion-content>
+</ion-view>
